@@ -13,7 +13,7 @@ from PIL import Image
 
 col1, col2, col3 = st.columns([1,2,1])
 with col2:
-    st.image("assets/logo.png", width=250)
+    st.image("SIRCLO (square) - Logo.png", width=250)
 
 st.markdown(
     """
