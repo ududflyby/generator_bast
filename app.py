@@ -8,9 +8,21 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 import io
+import streamlit as st
+from PIL import Image
 
-st.set_page_config(page_title="Generator BAST", layout="wide")
-st.title("📦 BAST (Berita Acara Serah Terima) Generator")
+col1, col2, col3 = st.columns([1,2,1])
+with col2:
+    st.image("assets/logo.png", width=250)
+
+st.markdown(
+    """
+    <h1 style='text-align: center;'>
+    Berita Acara Serah Terima (BAST) Generator
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
 
 # -----------------------
 # Header Inputs
