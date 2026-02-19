@@ -9,8 +9,8 @@ from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 import io
 
-st.set_page_config(page_title="BAST Generator", layout="wide")
-st.title("📦 Berita Acara Serah Terima (BAST) Generator")
+st.set_page_config(page_title="Generator BAST", layout="wide")
+st.title("📦 BAST (Berita Acara Serah Terima) Generator")
 
 # -----------------------
 # Header Inputs
@@ -181,7 +181,12 @@ def generate_pdf(df, tanggal, warehouse, courier, driver, police, total_koli):
     # Clean DF
     df_clean = df.copy().fillna("")
     expected_order = ["NO", "DELIVERY ORDER", "AIRWAYBILL", "STATE", "PROVIDER", "KOLI QTY"]
+    for col in expected_order:
+        if col not in df_clean.columns:
+            df_clean[col] = ""
+
     df_clean = df_clean[expected_order]
+
 
     header = list(df_clean.columns)
     data = df_clean.values.tolist()
