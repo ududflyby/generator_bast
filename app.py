@@ -11,18 +11,23 @@ import io
 import streamlit as st
 from PIL import Image
 
-col1, col2, col3 = st.columns([1,2,1])
-with col2:
-    st.image("SIRCLO (square) - Logo.png", width=250)
+col_logo, col_title = st.columns([1, 5])
 
-st.markdown(
-    """
-    <h1 style='text-align: center;'>
-    Berita Acara Serah Terima (BAST) Generator
-    </h1>
-    """,
-    unsafe_allow_html=True
-)
+with col_logo:
+    st.image("SIRCLO (square) - Logo.png", use_container_width=True)
+
+with col_title:
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center; height: 100%;">
+            <h1 style="margin: 0;">
+            Generator Berita Acara Serah Terima (BAST)
+            </h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 # -----------------------
 # Header Inputs
